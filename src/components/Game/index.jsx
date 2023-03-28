@@ -1,6 +1,5 @@
 import { useGameStateContext } from 'commom/contexts/GameState'
 import { useScoreContext } from 'commom/contexts/Score'
-import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import styles from './Game.module.css'
 import Hand from './Hand'
@@ -73,97 +72,54 @@ export default function Game() {
         }
     }
 
-    // useEffect(() => {
-    //     if(picked){
-    //         // setPc(maoAleatoria())
-    //         setPc("paper")
-    //     } else{
-    //         setPc(null)
-    //         setResult(null)
-    //     }
-    // }, [picked])
-
-    // useEffect(() => {
-    //     if(pc) chooseWinner()
-    // }, [pc])
-
     useEffect(() => {
         if (result) setScore(score + result)
     }, [result])
 
     return (
-
-        <AnimatePresence>
-            <div className={`${styles.container} ${gameState !== "start" ? styles.container__picked : ""}`}>
-                <div
-                    className={styles.playersChoice}>
-                    {
-                        gameState !== "start" &&
-                        <h3>Você</h3>
-                    }
-                    <div className={styles.handPair}>
-                        {
-                            (picked === "paper" || picked === null) &&
-                            <motion.div
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                exit={{ scale: 0 }}
-                                whileHover={{ scale: 1.15, rotate: -20 }}
-                                style={{display:"inline-block"}}
-                            >
-                                <Hand type="paper" escolher={escolher} winner={result > 0 && picked === "paper"} />
-                            </motion.div>
-                        }
-                        {
-                            (picked === "scissors" || picked === null) &&
-                            <motion.div
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                exit={{ scale: 0 }}
-                                whileHover={{ scale: 1.15, rotate: -20 }}
-                                style={{display:"inline-block"}}
-                            >
-                                <Hand type="scissors" escolher={escolher} winner={result > 0 && picked === "scissors"} />
-                            </motion.div>
-                        }
-                    </div>
-                    <div className={styles.handPair}>
-                        {
-                            (picked === "rock" || picked === null) &&
-                            <motion.div
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                exit={{ scale: 0 }}
-                                whileHover={{ scale: 1.15, rotate: -20 }}
-                                style={{display:"inline-block"}}
-                            >
-                                <Hand type="rock" escolher={escolher} winner={result > 0 && picked === "rock"} />
-                            </motion.div>
-                        }
-                    </div>
-                </div>
-                {
-                    gameState === "result" &&
-                    <motion.div
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: 1 }}
-                        exit={{ scaleX: 0 }}
-                        className={styles.result}
-                    >
-                        <h2>{result > 0 ? "Você ganhou!" : result < 0 ? "Você perdeu" : "Empate"}</h2>
-                        <button onClick={() => setGameState("start")}>Jogar de novo</button>
-                    </motion.div>
-                }
-
+        <div className={`${styles.container} ${gameState !== "start" ? styles.container__picked : ""}`}>
+            <div className={styles.playersChoice}>
                 {
                     gameState !== "start" &&
-                    <div className={styles.pcChoice}>
-                        <h3>Computador</h3>
-                        <Hand type={pc} escolher={escolher} winner={(result && result < 0)} player="pc" />
+                    <h3>Você</h3>
+                }
+                {
+                    (picked === "paper" || picked === null) &&
+                    <div className={styles.handWrapper}>
+                        <Hand type="paper" escolher={escolher} winner={result > 0 && picked === "paper"} />
                     </div>
                 }
-
+                {
+                    (picked === "scissors" || picked === null) &&
+                    <div className={styles.handWrapper}>
+                        <Hand type="scissors" escolher={escolher} winner={result > 0 && picked === "scissors"} />
+                    </div>
+                }
+                {
+                    (picked === "rock" || picked === null) &&
+                    <div className={styles.handWrapper}>
+                        <Hand type="rock" escolher={escolher} winner={result > 0 && picked === "rock"} />
+                    </div>
+                }
             </div>
-        </AnimatePresence>
+            {
+                gameState === "result" &&
+                <div className={styles.result}>
+                    <h2>{result > 0 ? "Você ganhou!" : result < 0 ? "Você perdeu" : "Empate"}</h2>
+                    <button onClick={() => setGameState("start")}>Jogar de novo</button>
+                </div>
+            }
+
+            {
+                gameState !== "start" &&
+                <div className={styles.pcChoice}>
+                    <h3>Computador</h3>
+                    <div className={styles.handWrapper}>
+                        <Hand type={pc} escolher={escolher} winner={(result && result < 0)} />
+                    </div>
+                </div>
+            }
+
+        </div>
     )
 }

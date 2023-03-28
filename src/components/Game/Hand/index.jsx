@@ -1,9 +1,16 @@
+import { useGameStateContext } from 'commom/contexts/GameState'
 import styles from './Hand.module.css'
 import { ReactComponent as Paper } from './icon-paper.svg'
 import { ReactComponent as Rock } from './icon-rock.svg'
 import { ReactComponent as Scissors } from './icon-scissors.svg'
 
-export default function Hand({ type, escolher, winner = false, player = "player" }) {
+export default function Hand({
+        type,
+        escolher,
+        winner = false
+    }) {
+    const { gameState } = useGameStateContext()
+
     function renderHand() {
         switch (type) {
             case "paper":
@@ -18,11 +25,16 @@ export default function Hand({ type, escolher, winner = false, player = "player"
     }
 
     return (
+        type ?
         <div
-            className={`${styles.handContainer} ${styles[`handContainer__${type}`]} ${winner ? styles.handContainer__winner : ""} ${player === "pc" ? styles.pc : ""}`}
-            onClick={() => escolher(type)}
+            className={styles.handContainer}
+            onClick={() => gameState === "start" ? escolher(type) : ""}
         >
             {renderHand()}
+        </div>
+        : <div
+            className={styles.empty}
+        >
         </div>
     )
 }
