@@ -1,0 +1,19 @@
+.container {
+    background: linear-gradient(0, var(--cor-branco-degrade2), var(--cor-branco-degrade1));
+    border-radius: 10px;
+    padding: 1rem 3rem;
+    text-align: center;
+}
+
+.titulo {
+    color: var(--cor-azul-texto);
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.pontos {
+    color: var(--cor-cinza-texto);
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1em;
+}

@@ -1,0 +1,12 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 700px;
+    max-width: 100%;
+    margin: 0 auto;
+
+    padding: 1.5rem;
+    border: solid 3px var(--cor-azul-claro);
+    border-radius: 20px;
+}

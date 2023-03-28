@@ -1,0 +1,5 @@
+.gameover {
+    font-size: 70px;
+    text-transform: uppercase;
+    color: var(--cor-pedra-sombra)
+}

@@ -1,0 +1,18 @@
+.botao {
+    position: absolute;
+    background-color: transparent;
+    border: solid 1px var(--cor-branco-degrade1);
+    padding: .8rem 2.5rem;
+    text-transform: uppercase;
+    color: var(--cor-branco-degrade1);
+    bottom: 2rem;
+    right: 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.botao:hover {
+    background-color: var(--cor-branco-degrade1);
+    color: var(--cor-azul-degrade1);
+}

@@ -1,13 +1,50 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+:root {
+    --cor-cinza-texto: #58546c;
+    --cor-azul-texto: #596fdb;
+    --cor-azul-claro: #596781;
+
+    --cor-azul-degrade1: #1f3857;
+    --cor-azul-degrade2: #131639;
+
+    --cor-branco-degrade1: #FFFFFF;
+    --cor-branco-degrade2: #f1f4f4;
+
+    --cor-cinza-degrade1: #f4f5f7;
+    --cor-cinza-degrade2: #dadada;
+    --cor-cinza-sombra: #bbc0d3;
+
+    --cor-papel-degrade1: #5772f6;
+    --cor-papel-degrade2: #4564f2;
+    --cor-papel-sombra: #2945c2;
+
+    --cor-tesoura-degrade1: #eba825;
+    --cor-tesoura-degrade2: #eb9f0e;
+    --cor-tesoura-sombra: #c76c1b;
+
+    --cor-pedra-degrade1: #df405e;
+    --cor-pedra-degrade2: #dc2d4c;
+    --cor-pedra-sombra: #a01835;
+
+    --cor-simbolo: #3a4362;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    margin: 0;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #FFFFFF;
+
+    background: radial-gradient(ellipse at top, var(--cor-azul-degrade1), var(--cor-azul-degrade2)) center top;
+    min-height: 100vh;
+    
+    padding: 30px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
