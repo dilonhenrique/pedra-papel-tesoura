@@ -18,7 +18,10 @@ export default function Hand({ type, escolher, winner = false, player = "player"
     }
 
     return (
-        <div className={`${styles.handContainer} ${styles[`handContainer__${type}`]} ${winner ? styles.handContainer__winner : ""} ${player === "pc" ? styles.pc : ""}`} onClick={() => escolher(type)}>
+        <div
+            className={`${styles.handContainer} ${styles[`handContainer__${type}`]} ${winner ? styles.handContainer__winner : ""} ${player === "pc" ? styles.pc : ""}`}
+            onClick={() => escolher(type)}
+        >
             {renderHand()}
         </div>
     )

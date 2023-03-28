@@ -1,16 +1,22 @@
 .container {
     margin-top: 50px;
-    background: url("./bg-triangle.svg") center 70px no-repeat;
+    background: url("./bg-triangle.svg") center 100px no-repeat;
     text-align: center;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 50px; */
+}
+
+.playersChoice,
+.pcChoice,
+.result {
+    display: inline-block;
 }
 
 .playersChoice {
-    display: grid;
+    /* display: grid;
     justify-content: center;
-    gap: 35px;
+    gap: 35px; */
 }
 
 .container__picked {
@@ -18,14 +24,14 @@
 }
 
 .container__picked .playersChoice{
-    display: initial;
+    /* display: initial; */
 }
 
 
 .handPair {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    gap: 80px;
+    gap: 80px; */
 }
 
 .container h3 {

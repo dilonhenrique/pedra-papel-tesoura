@@ -7,14 +7,15 @@
 .handContainer {
     width: 160px;
     height: 160px;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     position: relative;
     cursor: pointer;
+    margin: 30px;
 }
 
-.handContainer,
+/* .handContainer,
 .handContainer svg {
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -25,7 +26,7 @@
 
 .handContainer:hover svg {
     transform: rotate(-20deg);
-}
+} */
 
 .handContainer::before,
 .handContainer::after {
