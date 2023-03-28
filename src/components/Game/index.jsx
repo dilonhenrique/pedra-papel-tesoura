@@ -1,6 +1,5 @@
 import { useGameStateContext } from 'commom/contexts/GameState'
 import { useScoreContext } from 'commom/contexts/Score'
-import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import styles from './Game.module.css'
 import Hand from './Hand'
@@ -93,7 +92,6 @@ export default function Game() {
 
     return (
 
-        <AnimatePresence>
             <div className={`${styles.container} ${gameState !== "start" ? styles.container__picked : ""}`}>
                 <div
                     className={styles.playersChoice}>
@@ -104,7 +102,7 @@ export default function Game() {
                     <div className={styles.handPair}>
                         {
                             (picked === "paper" || picked === null) &&
-                            <motion.div
+                            <div
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
                                 exit={{ scale: 0 }}
@@ -112,11 +110,11 @@ export default function Game() {
                                 style={{display:"inline-block"}}
                             >
                                 <Hand type="paper" escolher={escolher} winner={result > 0 && picked === "paper"} />
-                            </motion.div>
+                            </div>
                         }
                         {
                             (picked === "scissors" || picked === null) &&
-                            <motion.div
+                            <div
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
                                 exit={{ scale: 0 }}
@@ -124,13 +122,13 @@ export default function Game() {
                                 style={{display:"inline-block"}}
                             >
                                 <Hand type="scissors" escolher={escolher} winner={result > 0 && picked === "scissors"} />
-                            </motion.div>
+                            </div>
                         }
                     </div>
                     <div className={styles.handPair}>
                         {
                             (picked === "rock" || picked === null) &&
-                            <motion.div
+                            <div
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
                                 exit={{ scale: 0 }}
@@ -138,13 +136,13 @@ export default function Game() {
                                 style={{display:"inline-block"}}
                             >
                                 <Hand type="rock" escolher={escolher} winner={result > 0 && picked === "rock"} />
-                            </motion.div>
+                            </div>
                         }
                     </div>
                 </div>
                 {
                     gameState === "result" &&
-                    <motion.div
+                    <div
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
                         exit={{ scaleX: 0 }}
@@ -152,7 +150,7 @@ export default function Game() {
                     >
                         <h2>{result > 0 ? "Você ganhou!" : result < 0 ? "Você perdeu" : "Empate"}</h2>
                         <button onClick={() => setGameState("start")}>Jogar de novo</button>
-                    </motion.div>
+                    </div>
                 }
 
                 {
@@ -164,6 +162,5 @@ export default function Game() {
                 }
 
             </div>
-        </AnimatePresence>
     )
 }
