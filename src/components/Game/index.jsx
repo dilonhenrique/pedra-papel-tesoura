@@ -18,8 +18,8 @@ export default function Game() {
         switch (gameState) {
             case "choosing":
                 setTimeout(() => {
-                    setPc("rock");
-                    // setPc(maoAleatoria());
+                    // setPc("rock");
+                    setPc(maoAleatoria());
                     setGameState("result");
                 }, 2000);
                 break;
