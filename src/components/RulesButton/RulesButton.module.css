@@ -5,4 +5,5 @@
 .imagem {
     margin-top: 2rem;
     text-align: center;
+    max-width: 100%;
 }

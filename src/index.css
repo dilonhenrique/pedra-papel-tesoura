@@ -15,17 +15,17 @@
     --cor-cinza-degrade2: #dadada;
     --cor-cinza-sombra: #bbc0d3;
 
-    --cor-papel-degrade1: #5772f6;
-    --cor-papel-degrade2: #4564f2;
-    --cor-papel-sombra: #2945c2;
+    --cor-paper-degrade1: #5772f6;
+    --cor-paper-degrade2: #4564f2;
+    --cor-paper-sombra: #2945c2;
 
-    --cor-tesoura-degrade1: #eba825;
-    --cor-tesoura-degrade2: #eb9f0e;
-    --cor-tesoura-sombra: #c76c1b;
+    --cor-scissors-degrade1: #eba825;
+    --cor-scissors-degrade2: #eb9f0e;
+    --cor-scissors-sombra: #c76c1b;
 
-    --cor-pedra-degrade1: #df405e;
-    --cor-pedra-degrade2: #dc2d4c;
-    --cor-pedra-sombra: #a01835;
+    --cor-rock-degrade1: #df405e;
+    --cor-rock-degrade2: #dc2d4c;
+    --cor-rock-sombra: #a01835;
 
     --cor-simbolo: #3a4362;
 }

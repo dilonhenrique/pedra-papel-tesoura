@@ -1,37 +1,37 @@
 .container {
-    margin-top: 50px;
+    margin-top: 30px;
     background: url("./bg-triangle.svg") center 100px no-repeat;
     text-align: center;
-    /* display: flex;
-    justify-content: center;
-    gap: 50px; */
 }
 
 .playersChoice,
 .pcChoice,
-.result {
+.result,
+.handWrapper {
     display: inline-block;
+    vertical-align: middle;
 }
 
-.playersChoice {
-    /* display: grid;
-    justify-content: center;
-    gap: 35px; */
+.playersChoice,
+.pcChoice {
+    padding-top: 28px;
+}
+
+.handWrapper {
+    min-width: 50%;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.handWrapper:last-child {
+    margin-bottom: 0;
 }
 
 .container__picked {
     background: none;
-}
-
-.container__picked .playersChoice{
-    /* display: initial; */
-}
-
-
-.handPair {
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    gap: 80px; */
+    gap: 50px
 }
 
 .container h3 {
@@ -58,7 +58,12 @@
     margin-top: 10px;
 }
 
+<<<<<<< HEAD
 /* .result button:hover {
     color: var(--cor-pedra-degrade1);
+=======
+.result button:hover {
+    color: var(--cor-rock-degrade1);
+>>>>>>> animation
     transform: scale(1.1);
 } */

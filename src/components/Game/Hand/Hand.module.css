@@ -1,9 +1,12 @@
+.empty,
 .handContainer,
 .handContainer::after,
-.handContainer::before {
+.handContainer::before,
+.winner {
     border-radius: 50%;
 }
 
+.empty,
 .handContainer {
     width: 160px;
     height: 160px;
@@ -12,21 +15,19 @@
     align-items: center;
     position: relative;
     cursor: pointer;
-    margin: 30px;
+    margin: auto;
+    vertical-align: top;
 }
 
-/* .handContainer,
-.handContainer svg {
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.empty {
+    background: rgba(0,0,0,0.1);
 }
 
-.handContainer:hover {
-    transform: scale(1.15);
+.handContainer::before {
+    background-image: linear-gradient(0, var(--cor-cinza-degrade1), var(--cor-cinza-degrade2));
+    box-shadow: inset 0 6px 0 var(--cor-cinza-sombra);
+    inset: 18px;
 }
-
-.handContainer:hover svg {
-    transform: rotate(-20deg);
-} */
 
 .handContainer::before,
 .handContainer::after {
@@ -34,32 +35,31 @@
     position: absolute;
 }
 
-.pc::before {
-    background: rgba(0,0,0,0.1);
-    box-shadow: none;
-    inset: 10px;
-}
-
-.handContainer__rock::before,
-.handContainer__paper::before,
-.handContainer__scissors::before {
-    background-image: linear-gradient(0, var(--cor-cinza-degrade1), var(--cor-cinza-degrade2));
-    box-shadow: inset 0 6px 0 var(--cor-cinza-sombra);
-    inset: 18px;
-}
-
 .handContainer::after {
     inset: 0;
 }
 
-.handContainer__rock {
-    background-image: linear-gradient(0, var(--cor-pedra-degrade2), var(--cor-pedra-degrade1));
-}
-.handContainer__rock::after {
-    box-shadow: 0 8px 0 var(--cor-pedra-sombra), 0 8px 15px rgba(0,0,0,0.5);
+.handContainer svg,
+.handContainer img {
+    z-index: 1;
 }
 
-.handContainer__paper {
+.winner {
+    box-shadow: 0 4px 0 30px rgba(118,136,214,0.1),0 4px 0 60px rgba(118,136,214,0.1),0 4px 0 90px rgba(118,136,214,0.1);
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    bottom: 0;
+}
+
+/* .handContainer {
+    background-image: linear-gradient(0, var(--cor-pedra-degrade2), var(--cor-pedra-degrade1));
+}
+.handContainer::after {
+    box-shadow: 0 8px 0 var(--cor-pedra-sombra), 0 8px 15px rgba(0,0,0,0.5);
+} */
+
+/*.handContainer__paper {
     background-image: linear-gradient(0, var(--cor-papel-degrade2), var(--cor-papel-degrade1));
 }
 .handContainer__paper::after {
@@ -73,11 +73,7 @@
     box-shadow: 0 8px 0 var(--cor-tesoura-sombra), 0 8px 15px rgba(0,0,0,0.5);
 }
 
-.handContainer svg {
-    z-index: 1;
-}
-
 .handContainer__winner {
     box-shadow: 0 4px 0 30px rgba(118,136,214,0.1),0 4px 0 60px rgba(118,136,214,0.1),0 4px 0 90px rgba(118,136,214,0.1);
     z-index:-1;
-}
+} */
