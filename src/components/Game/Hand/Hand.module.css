@@ -1,7 +1,8 @@
 .empty,
 .handContainer,
 .handContainer::after,
-.handContainer::before {
+.handContainer::before,
+.winner {
     border-radius: 50%;
 }
 
@@ -22,10 +23,10 @@
     background: rgba(0,0,0,0.1);
 }
 
-.handContainer {
+.handContainer::before {
     background-image: linear-gradient(0, var(--cor-cinza-degrade1), var(--cor-cinza-degrade2));
     box-shadow: inset 0 6px 0 var(--cor-cinza-sombra);
-    /* inset: 18px; */
+    inset: 18px;
 }
 
 .handContainer::before,
@@ -38,14 +39,27 @@
     inset: 0;
 }
 
-/* .handContainer__rock {
-    background-image: linear-gradient(0, var(--cor-pedra-degrade2), var(--cor-pedra-degrade1));
-}
-.handContainer__rock::after {
-    box-shadow: 0 8px 0 var(--cor-pedra-sombra), 0 8px 15px rgba(0,0,0,0.5);
+.handContainer svg,
+.handContainer img {
+    z-index: 1;
 }
 
-.handContainer__paper {
+.winner {
+    box-shadow: 0 4px 0 30px rgba(118,136,214,0.1),0 4px 0 60px rgba(118,136,214,0.1),0 4px 0 90px rgba(118,136,214,0.1);
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    bottom: 0;
+}
+
+/* .handContainer {
+    background-image: linear-gradient(0, var(--cor-pedra-degrade2), var(--cor-pedra-degrade1));
+}
+.handContainer::after {
+    box-shadow: 0 8px 0 var(--cor-pedra-sombra), 0 8px 15px rgba(0,0,0,0.5);
+} */
+
+/*.handContainer__paper {
     background-image: linear-gradient(0, var(--cor-papel-degrade2), var(--cor-papel-degrade1));
 }
 .handContainer__paper::after {
@@ -57,10 +71,6 @@
 }
 .handContainer__scissors::after {
     box-shadow: 0 8px 0 var(--cor-tesoura-sombra), 0 8px 15px rgba(0,0,0,0.5);
-}
-
-.handContainer svg {
-    z-index: 1;
 }
 
 .handContainer__winner {

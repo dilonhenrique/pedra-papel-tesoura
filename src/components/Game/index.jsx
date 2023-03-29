@@ -4,12 +4,15 @@ import { useEffect, useState } from 'react'
 import styles from './Game.module.css'
 import Hand from './Hand'
 
+import { motion } from 'framer-motion'
+
 export default function Game() {
     const [picked, setPicked] = useState(null)
     const [pc, setPc] = useState(null)
     const [result, setResult] = useState(0)
     const { score, setScore } = useScoreContext()
     const { gameState, setGameState } = useGameStateContext()
+    const maos = ["rock", "paper", "scissors"]
 
     useEffect(() => {
         switch (gameState) {
@@ -17,7 +20,7 @@ export default function Game() {
                 setTimeout(() => {
                     // setPc("rock");
                     setPc(maoAleatoria());
-                    setGameState("result")
+                    setGameState("result");
                 }, 2000);
                 break;
             case "result":
@@ -42,8 +45,7 @@ export default function Game() {
     }
 
     function maoAleatoria() {
-        const opcoes = ["rock", "paper", "scissors"]
-        const mao = opcoes[Math.floor(Math.random() * opcoes.length)]
+        const mao = maos[Math.floor(Math.random() * maos.length)]
 
         return mao
     }
@@ -76,6 +78,17 @@ export default function Game() {
         if (result) setScore(score + result)
     }, [result])
 
+    const variants = {
+        visible: i => ({
+            opacity: 1,
+            scale: 1,
+            transition: {
+                delay: i * 0.1,
+            },
+        }),
+        hidden: { opacity: 0, scale: 0 },
+    }
+
     return (
         <div className={`${styles.container} ${gameState !== "start" ? styles.container__picked : ""}`}>
             <div className={styles.playersChoice}>
@@ -84,39 +97,50 @@ export default function Game() {
                     <h3>Você</h3>
                 }
                 {
-                    (picked === "paper" || picked === null) &&
-                    <div className={styles.handWrapper}>
-                        <Hand type="paper" escolher={escolher} winner={result > 0 && picked === "paper"} />
-                    </div>
-                }
-                {
-                    (picked === "scissors" || picked === null) &&
-                    <div className={styles.handWrapper}>
-                        <Hand type="scissors" escolher={escolher} winner={result > 0 && picked === "scissors"} />
-                    </div>
-                }
-                {
-                    (picked === "rock" || picked === null) &&
-                    <div className={styles.handWrapper}>
-                        <Hand type="rock" escolher={escolher} winner={result > 0 && picked === "rock"} />
-                    </div>
+                    maos.map((mao, index) => {
+                        if (picked === mao || picked === null)
+                            return (
+                                <motion.div className={styles.handWrapper}
+                                    key={`${mao}${index}`}
+                                    custom={index}
+                                    initial="hidden"
+                                    animate="visible"
+                                    layout={true}
+                                    variants={variants}
+                                >
+                                    <Hand type={mao} escolher={escolher} winner={result > 0 && picked === mao} />
+                                </motion.div>
+                            )
+                    })
                 }
             </div>
+
             {
                 gameState === "result" &&
-                <div className={styles.result}>
+                <motion.div className={styles.result}
+                    key="result01"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    exit={{ scaleX: 0 }}
+                >
                     <h2>{result > 0 ? "Você ganhou!" : result < 0 ? "Você perdeu" : "Empate"}</h2>
                     <button onClick={() => setGameState("start")}>Jogar de novo</button>
-                </div>
+                </motion.div>
             }
 
             {
                 gameState !== "start" &&
                 <div className={styles.pcChoice}>
                     <h3>Computador</h3>
-                    <div className={styles.handWrapper}>
+                    <motion.div className={styles.handWrapper}
+                        key="pc01"
+                        initial="hidden"
+                        animate="visible"
+                        layout={true}
+                        variants={variants}
+                    >
                         <Hand type={pc} escolher={escolher} winner={(result && result < 0)} />
-                    </div>
+                    </motion.div>
                 </div>
             }
 
