@@ -2,10 +2,7 @@ import { OpenModalProvider, useOpenModalContext } from './OpenModalContext'
 import { ReactComponent as Close } from './icon-close.svg'
 import styles from './Modal.module.css'
 import { useEffect } from 'react'
-<<<<<<< HEAD
-=======
 import { motion, AnimatePresence } from 'framer-motion'
->>>>>>> animation
 
 export default function Modal(props) {
     return (
@@ -28,27 +25,6 @@ export function RealModal({ children, style, open = false, onClose = () => { } }
     }, [open])
 
     return (
-<<<<<<< HEAD
-        openModal &&
-        <div
-            initial={{ opacity: 0, zIndex: 5 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className={styles.modalContainer}
-            onClick={clickFora}
-        >
-            <div
-                animation={{ y: "50%" }}
-                className={styles.modal}
-                style={style}
-            >
-                {children}
-                <button className={styles.botaoFechar} onClick={fecharModal}>
-                    <Close />
-                </button>
-            </div>
-        </div>
-=======
         <AnimatePresence>
             {openModal &&
                 <motion.div
@@ -72,6 +48,5 @@ export function RealModal({ children, style, open = false, onClose = () => { } }
                     </motion.div>
                 </motion.div>}
         </AnimatePresence>
->>>>>>> animation
     )
 }

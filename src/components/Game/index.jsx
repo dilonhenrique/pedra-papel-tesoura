@@ -90,73 +90,8 @@ export default function Game() {
     }
 
     return (
-<<<<<<< HEAD
-
-            <div className={`${styles.container} ${gameState !== "start" ? styles.container__picked : ""}`}>
-                <div
-                    className={styles.playersChoice}>
-                    {
-                        gameState !== "start" &&
-                        <h3>Você</h3>
-                    }
-                    <div className={styles.handPair}>
-                        {
-                            (picked === "paper" || picked === null) &&
-                            <div
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                exit={{ scale: 0 }}
-                                whileHover={{ scale: 1.15, rotate: -20 }}
-                                style={{display:"inline-block"}}
-                            >
-                                <Hand type="paper" escolher={escolher} winner={result > 0 && picked === "paper"} />
-                            </div>
-                        }
-                        {
-                            (picked === "scissors" || picked === null) &&
-                            <div
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                exit={{ scale: 0 }}
-                                whileHover={{ scale: 1.15, rotate: -20 }}
-                                style={{display:"inline-block"}}
-                            >
-                                <Hand type="scissors" escolher={escolher} winner={result > 0 && picked === "scissors"} />
-                            </div>
-                        }
-                    </div>
-                    <div className={styles.handPair}>
-                        {
-                            (picked === "rock" || picked === null) &&
-                            <div
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                exit={{ scale: 0 }}
-                                whileHover={{ scale: 1.15, rotate: -20 }}
-                                style={{display:"inline-block"}}
-                            >
-                                <Hand type="rock" escolher={escolher} winner={result > 0 && picked === "rock"} />
-                            </div>
-                        }
-                    </div>
-                </div>
-                {
-                    gameState === "result" &&
-                    <div
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: 1 }}
-                        exit={{ scaleX: 0 }}
-                        className={styles.result}
-                    >
-                        <h2>{result > 0 ? "Você ganhou!" : result < 0 ? "Você perdeu" : "Empate"}</h2>
-                        <button onClick={() => setGameState("start")}>Jogar de novo</button>
-                    </div>
-                }
-
-=======
         <div className={`${styles.container} ${gameState !== "start" ? styles.container__picked : ""}`}>
             <div className={styles.playersChoice}>
->>>>>>> animation
                 {
                     gameState !== "start" &&
                     <h3>Você</h3>
@@ -179,13 +114,10 @@ export default function Game() {
                     })
                 }
             </div>
-<<<<<<< HEAD
-=======
 
             {
                 gameState === "result" &&
                 <motion.div className={styles.result}
-                    key="result01"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     exit={{ scaleX: 0 }}
@@ -200,7 +132,6 @@ export default function Game() {
                 <div className={styles.pcChoice}>
                     <h3>Computador</h3>
                     <motion.div className={styles.handWrapper}
-                        key="pc01"
                         initial="hidden"
                         animate="visible"
                         layout={true}
@@ -212,6 +143,5 @@ export default function Game() {
             }
 
         </div>
->>>>>>> animation
     )
 }
