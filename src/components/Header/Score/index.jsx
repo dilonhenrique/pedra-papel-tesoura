@@ -12,12 +12,8 @@ export default function Score() {
             await animate(scope.current, { y: "1em", opacity: 0 }, { duration: 0.1 })
             await animate(scope.current, { y: "-1em", opacity: 0 }, { duration: 0 })
             animate(scope.current, { y: 0, opacity: 1 }, { duration: 0.1 })
-
-
         }
         slide()
-        //initial={{ y: -100, opacity: 0 }}
-        //animate={{ y: 0, opacity: 1 }}
     }, [score])
 
     return (

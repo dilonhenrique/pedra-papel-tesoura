@@ -41,7 +41,9 @@ export function RealModal({ children, style, open = false, onClose = () => { } }
                         style={style}
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {children}
+                        <div>
+                            {children}
+                        </div>
                         <button className={styles.botaoFechar} onClick={fecharModal}>
                             <Close />
                         </button>

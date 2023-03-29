@@ -16,3 +16,11 @@
     background-color: var(--cor-branco-degrade1);
     color: var(--cor-azul-degrade1);
 }
+
+@media (max-width: 750px){
+    .botao {
+        right:initial;
+        left:50%;
+        transform: translateX(-50%);
+    }
+}

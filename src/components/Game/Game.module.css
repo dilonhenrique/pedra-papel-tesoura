@@ -1,7 +1,11 @@
 .container {
+    max-width: 100%;
     margin-top: 30px;
     background: url("./bg-triangle.svg") center 100px no-repeat;
     text-align: center;
+
+    display: flex;
+    justify-content: center;
 }
 
 .playersChoice,
@@ -46,9 +50,14 @@
     align-self: center;
 }
 
+.result h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
 .result button {
     background: #FFF;
-    border:none;
+    border: none;
     border-radius: 10px;
     color: var(--cor-azul-texto);
     transition: 0.3s ease-in-out;
@@ -61,4 +70,45 @@
 .result button:hover {
     color: var(--cor-rock-degrade1);
     transform: scale(1.1);
+}
+
+/* ORDEM DAS COLUNAS */
+.playersChoice {
+    order: 1
+}
+
+.result {
+    order: 2
+}
+
+.pcChoice {
+    order: 3
+}
+
+@media (max-width: 750px) {
+    .container__picked {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .playersChoice {
+        justify-self: right
+    }
+
+    .pcChoice {
+        justify-self: left
+    }
+
+    .result {
+        order: 4;
+        grid-column: 1/3;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        background-size: 55vw;
+        background-position: center 23vw;
+    }
 }

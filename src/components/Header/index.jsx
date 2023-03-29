@@ -1,11 +1,11 @@
 import styles from './Header.module.css';
-import { ReactComponent as Logo } from './logo.svg'
+import logo from './logo.svg'
 import Score from './Score';
 
 export default function Header() {
     return (
         <header className={styles.header}>
-            <Logo />
+            <img src={logo} alt="Pedra, Papel e Tesoura" />
             <Score />
         </header>
     )
